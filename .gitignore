@@ -31,3 +31,9 @@ build/
 
 ### VS Code ###
 .vscode/
+.mvn/wrapper/maven-wrapper.jar
+.mvn/wrapper/maven-wrapper.properties
+/src/main/webapp/WEB-INF/images/source
+mvnw.cmd
+mvnw
+src/test/java/com/triplewhitefox/statusapp/StatusApplicationTests.java
