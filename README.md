@@ -1,5 +1,5 @@
 # StatusApp
-This is a POC I created for an application that I ultimately extended for an application for a project that I work on. I developed this entirely on my own time and used it as a way to learn Spring Boot.
+This is a POC which I created for an application that I ultimately extended and used on a project that I work on. I developed this entirely on my own time and used it as a way to learn Spring Boot.
 The application is a dashboard that shows which servers are up and which are down for various application environments (QA, DEV, PROD, etc.). 
 
 This is the dashboard - 
