@@ -1,0 +1,61 @@
+{
+  "name": "myApp",
+  "environments": [
+    {
+      "name": "DEV",
+      "instances": [
+        {
+          "name": "appserver1",
+          "url": "http://httpstat.us/200",
+          "pingUrl" : "http://httpstat.us/200",
+          "consoleUrl" : "login.html"
+        },
+        {
+          "name": "appserver2",
+          "url": "http://httpstat.us/404",
+          "pingUrl" : "http://httpstat.us/404",
+          "consoleUrl" : "login.html"
+        },
+        {
+          "name": "batchserver1",
+          "url": "http://httpstat.us/404",
+          "pingUrl" : "http://httpstat.us/404",
+          "consoleUrl" : "login.html"
+        },
+        {
+          "name": "contentserver1",
+          "url": "http://httpstat.us/500",
+          "pingUrl" : "http://httpstat.us/500"
+        }
+      ]
+    },
+    {
+      "name": "QA",
+      "instances": [
+        {
+          "name": "appserver1",
+          "url": "http://httpstat.us/404",
+          "pingUrl" : "http://httpstat.us/404",
+          "consoleUrl" : "login.html"
+        },
+        {
+          "name": "appserver2",
+          "url": "http://httpstat.us/200",
+          "pingUrl" : "http://httpstat.us/200",
+          "consoleUrl" : "login.html"
+        },
+        {
+          "name": "batchserver1",
+          "url": "http://httpstat.us/200",
+          "pingUrl" : "http://httpstat.us/200",
+          "consoleUrl" : "login.html"
+        },
+        {
+          "name": "contentserver1",
+          "url": "http://httpstat.us/500",
+          "pingUrl" : "http://httpstat.us/500"
+        }
+      ]
+    }
+  ]
+}

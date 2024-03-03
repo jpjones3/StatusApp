@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Application Status</title>
+    <style>
+        body {
+            background-color: #eee;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 18px;
+        }
+
+        .content-wrapper {
+            background-color: white;
+            padding: 2em;
+            margin-right: auto;
+            margin-left: auto;
+            max-width: 960px;
+        }
+
+        .status {
+            padding: 2em;
+        }
+
+        th, td {
+            padding: 5px;
+        }
+
+        .status tr:nth-child(even) {
+            background-color: #eee;
+        }
+    </style>
+</head>
+<body>
+<div class="content-wrapper">
+    <div class="content">
+        <h1>Application Status</h1>
+        <a href="dashboard">Home</a> > <th:block th:text="${currentEnv}"></th:block>
+        <div class="status">
+            <table>
+                <tr>
+                    <th>instance</th>
+                    <th>status</th>
+                    <th>console</th>
+                </tr>
+                    <tr th:each="entry : ${statusList}">
+                        <td>
+                            <a th:if="${entry.value.getUrl().length() > 0}" th:href="${entry.value.getUrl()}" th:text="${entry.key}"></a>
+                            <th:block th:if="${entry.value.getUrl().length() == 0}" th:text="${entry.key}"></th:block>
+                        </td>
+                        <td align="center">
+                            <img th:src="${entry.value.isUp()?'images/up_20.png':'images/down_20.png'}"/>
+                        </td>
+                        <td>
+                            <a th:if="${entry.value.getConsoleUrl() != null && entry.value.getConsoleUrl().length() > 0}" th:href="${entry.value.getConsoleUrl()}" th:text="${'console'}"></a>
+                        </td>
+                    </tr>
+            </table>
+            <p>Last Updated: <span th:text=${lastUpdated}>N/A</span></p>
+        </div><!-- .status -->
+    </div><!-- .content -->
+</div><!-- .content-wrapper -->
+</body>
+</html>
