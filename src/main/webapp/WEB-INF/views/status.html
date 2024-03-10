@@ -44,20 +44,35 @@
                     <th>status</th>
                     <th>console</th>
                 </tr>
-                    <tr th:each="entry : ${statusList}">
-                        <td>
-                            <a th:if="${entry.value.getUrl().length() > 0}" th:href="${entry.value.getUrl()}" th:text="${entry.key}"></a>
-                            <th:block th:if="${entry.value.getUrl().length() == 0}" th:text="${entry.key}"></th:block>
-                        </td>
-                        <td align="center">
-                            <img th:src="${entry.value.isUp()?'images/up_20.png':'images/down_20.png'}"/>
-                        </td>
-                        <td>
-                            <a th:if="${entry.value.getConsoleUrl() != null && entry.value.getConsoleUrl().length() > 0}" th:href="${entry.value.getConsoleUrl()}" th:text="${'console'}"></a>
-                        </td>
-                    </tr>
+                <tr th:each="entry : ${statusList}">
+                    <td>
+                        <a th:if="${entry.value.getUrl().length() > 0}" th:href="${entry.value.getUrl()}" th:text="${entry.key}"></a>
+                        <th:block th:if="${entry.value.getUrl().length() == 0}" th:text="${entry.key}"></th:block>
+                    </td>
+                    <td align="center">
+                        <img th:src="${entry.value.isUp() == 0?'images/up_20.png':(entry.value.isUp() == 1?'images/down_20.png':'images/questionable_20.png')}"/>
+                    </td>
+                    <td>
+                        <a th:if="${entry.value.getConsoleUrl() != null && entry.value.getConsoleUrl().length() > 0}" th:href="${entry.value.getConsoleUrl()}" th:text="${'console'}"></a>
+                    </td>
+                </tr>
             </table>
-            <p>Last Updated: <span th:text=${lastUpdated}>N/A</span></p>
+            <p>Web Services</p>
+            <table>
+                <tr>
+                    <th>service</th>
+                    <th>status</th>
+                </tr>
+                <tr th:each="entry : ${wsStatusList}">
+                    <td>
+                        <th:block th:text="${entry.key}"></th:block>
+                    </td>
+                    <td align="center">
+                        <img th:src="${entry.value.isUp() == 0?'images/up_20.png':(entry.value.isUp() == 1?'images/down_20.png':'images/questionable_20.png')}"/>
+                    </td>
+                </tr>
+            </table>
+            <p>Last Updated: <span th:text="${lastUpdated}">N/A</span></p>
         </div><!-- .status -->
     </div><!-- .content -->
 </div><!-- .content-wrapper -->

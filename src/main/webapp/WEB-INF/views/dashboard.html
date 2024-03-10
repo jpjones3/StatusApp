@@ -48,16 +48,16 @@
                 <tr th:each="entry : ${statusList}">
                     <td><a th:href="@{'/status?name=' + ${entry.key}}" th:text="${entry.key}"/></td>
                     <td align="center">
-                        <img th:src="${entry.value['appserver1'] == null?'':(entry.value['appserver1'] == 'up'?'images/up_20.png':'images/down_20.png')}"/>
+                        <img th:src="${entry.value['appserver1'] == null?'':(entry.value['appserver1'] == 0?'images/up_20.png':(entry.value['appserver1'] == 1?'images/down_20.png':'images/questionable_20.png'))}"/>
                     </td>
                     <td align="center">
-                        <img th:src="${entry.value['appserver2'] == null?'':(entry.value['appserver2'] == 'up'?'images/up_20.png':'images/down_20.png')}"/>
+                        <img th:src="${entry.value['appserver2'] == null?'':(entry.value['appserver2'] == 0?'images/up_20.png':(entry.value['appserver2'] == 1?'images/down_20.png':'images/questionable_20.png'))}"/>
                     </td>
                     <td align="center">
-                        <img th:src="${entry.value['batchserver1'] == null?'':(entry.value['batchserver1'] == 'up'?'images/up_20.png':'images/down_20.png')}"/>
+                        <img th:src="${entry.value['batchserver1'] == null?'':(entry.value['batchserver1'] == 0?'images/up_20.png':(entry.value['batchserver1'] == 1?'images/down_20.png':'images/questionable_20.png'))}"/>
                     </td>
                     <td align="center">
-                        <img th:src="${entry.value['contentserver1'] == null?'':(entry.value['contentserver1'] == 'up'?'images/up_20.png':'images/down_20.png')}"/>
+                        <img th:src="${entry.value['contentserver1'] == null?'':(entry.value['contentserver1'] == 0?'images/up_20.png':(entry.value['contentserver1'] == 1?'images/down_20.png':'images/questionable_20.png'))}"/>
                     </td>
                 </tr>
             </table>

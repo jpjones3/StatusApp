@@ -8,24 +8,42 @@
           "name": "appserver1",
           "url": "http://httpstat.us/200",
           "pingUrl" : "http://httpstat.us/200",
+          "responseValidationRegex" : ".*OK",
           "consoleUrl" : "login.html"
         },
         {
           "name": "appserver2",
           "url": "http://httpstat.us/404",
           "pingUrl" : "http://httpstat.us/404",
+          "responseValidationRegex" : ".*OK",
           "consoleUrl" : "login.html"
         },
         {
           "name": "batchserver1",
           "url": "http://httpstat.us/404",
           "pingUrl" : "http://httpstat.us/404",
+          "responseValidationRegex" : ".*OK",
           "consoleUrl" : "login.html"
         },
         {
           "name": "contentserver1",
           "url": "http://httpstat.us/500",
-          "pingUrl" : "http://httpstat.us/500"
+          "pingUrl" : "http://httpstat.us/500",
+          "responseValidationRegex" : ".*OK"
+        }
+      ],
+      "webServices": [
+        {
+          "name": "hello world service",
+          "endPoint": "http://secure.smartbearsoftware.com/samples/testcomplete15/webservices/Service.asmx?op=HelloWorld",
+          "requestPayloadFile": "helloworldrequest.xml",
+          "responseValidationRegex": ".*Hello World.*"
+        },
+        {
+          "name": "bad service",
+          "endPoint": "http://localhost:8080/StatusApp/NotMyWebService",
+          "requestPayloadFile": "helloworldrequest.xml",
+          "responseValidationRegex": ".*Hello World.*"
         }
       ]
     },
@@ -36,24 +54,36 @@
           "name": "appserver1",
           "url": "http://httpstat.us/404",
           "pingUrl" : "http://httpstat.us/404",
+          "responseValidationRegex" : ".*OK",
           "consoleUrl" : "login.html"
         },
         {
           "name": "appserver2",
           "url": "http://httpstat.us/200",
           "pingUrl" : "http://httpstat.us/200",
+          "responseValidationRegex" : ".*OK",
           "consoleUrl" : "login.html"
         },
         {
           "name": "batchserver1",
           "url": "http://httpstat.us/200",
           "pingUrl" : "http://httpstat.us/200",
+          "responseValidationRegex" : "OK.*",
           "consoleUrl" : "login.html"
         },
         {
           "name": "contentserver1",
           "url": "http://httpstat.us/500",
-          "pingUrl" : "http://httpstat.us/500"
+          "pingUrl" : "http://httpstat.us/500",
+          "responseValidationRegex" : ".*OK"
+        }
+      ],
+      "webServices": [
+        {
+          "name": "current time service",
+          "endPoint": "http://secure.smartbearsoftware.com/samples/testcomplete15/webservices/Service.asmx?op=HelloWorld",
+          "requestPayloadFile": "getcurrenttime.xml",
+          "responseValidationRegex": ".*Hello World.*"
         }
       ]
     }

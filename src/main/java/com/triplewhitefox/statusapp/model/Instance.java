@@ -4,12 +4,17 @@ import java.util.Date;
 
 public class Instance {
 
+    public static int STATUS_UP = 0;
+    public static int STATUS_DOWN = 1;
+    public static int STATUS_UNHEALTHY = 2;
+
     private String name;
     private String url;
     private String pingUrl;
+    private String responseValidationRegex;
     private String consoleUrl;
     private Date lastChecked;
-    private boolean isUp;
+    private int isUp;
 
     public Instance(String name, String url) {
         this.name = name;
@@ -32,7 +37,7 @@ public class Instance {
         this.lastChecked = lastChecked;
     }
 
-    public boolean isUp() {
+    public int isUp() {
         return isUp;
     }
 
@@ -52,7 +57,7 @@ public class Instance {
         this.consoleUrl = consoleUrl;
     }
 
-    public void setUp(boolean up) {
+    public void setUp(int up) {
         isUp = up;
     }
 
@@ -62,5 +67,13 @@ public class Instance {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getResponseValidationRegex() {
+        return responseValidationRegex;
+    }
+
+    public void setResponseValidationRegex(String responseValidationRegex) {
+        this.responseValidationRegex = responseValidationRegex;
     }
 }
